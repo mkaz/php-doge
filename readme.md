@@ -17,18 +17,29 @@ Also, here's a [guide building dogecoind](http://www.dogeco.in/wiki/index.php/Co
 
 ## Usage:
 
-Edit config in Doge.php to match your RPC server
+Example use, see examples.php for more
 
 ```
-private $hostname = '127.0.0.1';
-private $port     = '22555';
-private $rpc_user = 'dogecoinrpc';
-private $rpc_pass = 'password';
-```
+require "./Doge.php";
 
-Example Uses:
-```
-$doge = new Doge();
+$config = array(
+    'user' => 'dogecoinrpc',
+    'pass' => '--password--',
+    'host' => '127.0.0.1',
+    'port' => '22555' );
+
+// create client conncetion
+$doge = new Doge( $config );
+
+// create a new address
+$address = $doge->get_address( 'mkaz' );
+print( $address );
+
+// check balance 
+print( "mkaz: " . $doge->get_balance( 'mkaz' ) );
+
+// send money externally (withdrawl?)
+$doge->send( 'mkaz', 'DNYJ2ANdx1GL4sbCyikaVgYrf2GfiCtf8N', 100 );
 
 ```
 
