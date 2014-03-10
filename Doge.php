@@ -79,6 +79,15 @@ class Doge  {
         return $this->client->listaccounts();
     }
 
+    /**
+     * Get the details of a transaction
+     *
+     * @param string $txid transaction id
+     * @return array describing the transaction
+     */
+    function get_transaction( $txid ) {
+        return $this->client->gettransaction( $txid );
+    }
 
     /**
      * Associate dogecoin address to account string
