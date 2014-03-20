@@ -96,7 +96,7 @@ class Doge  {
      * @param string $account account string
      */
     function set_account( $address, $account ) {
-        return $this->client->setaccount();
+        return $this->client->setaccount($address, $account);
     }
 
 
@@ -106,8 +106,8 @@ class Doge  {
      * @param string $account account name
      * @return float account balance
      */
-    function get_balance( $account ) {
-        return $this->client->getbalance( $account );
+    function get_balance( $account, $minconf=1 ) {
+        return $this->client->getbalance( $account, $minconf );
     }
 
 
@@ -133,7 +133,7 @@ class Doge  {
      * @param float $amount amount of coins to send
      * @return string txid
      */
-    function send() {
+    function send( $account, $to_address, $amount ) {
         $txid = $this->client->sendfrom( $account, $to_address, $amount );  
         return $txid;
     }
