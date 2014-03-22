@@ -10,7 +10,7 @@
  * License : GPL vv
  */ 
 
-require dirname(  __FILE__ ) . '/jsonRPCClient.php';
+require_once dirname(  __FILE__ ) . '/jsonRPCClient.php';
 
 class Doge  {
 
