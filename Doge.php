@@ -138,5 +138,13 @@ class Doge  {
         return $txid;
     }
 
+	/**
+	 * Validate a given Dogecoin Address
+	 * @param string $address to validate
+	 * @return array with the properties of the address
+	 */
+	function validate_address( $address ) {
+		return $this->client->validateaddress($address);
+	}
 }
 
