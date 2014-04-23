@@ -10,7 +10,7 @@
  * License : GPL vv
  */ 
 
-require dirname(  __FILE__ ) . '/jsonRPCClient.php';
+require_once dirname(  __FILE__ ) . '/jsonRPCClient.php';
 
 class Doge  {
 
@@ -79,6 +79,15 @@ class Doge  {
         return $this->client->listaccounts();
     }
 
+    /**
+     * Get the details of a transaction
+     *
+     * @param string $txid transaction id
+     * @return array describing the transaction
+     */
+    function get_transaction( $txid ) {
+        return $this->client->gettransaction( $txid );
+    }
 
     /**
      * Associate dogecoin address to account string
@@ -87,7 +96,7 @@ class Doge  {
      * @param string $account account string
      */
     function set_account( $address, $account ) {
-        return $this->client->setaccount();
+        return $this->client->setaccount($address, $account);
     }
 
 
@@ -97,8 +106,8 @@ class Doge  {
      * @param string $account account name
      * @return float account balance
      */
-    function get_balance( $account ) {
-        return $this->client->getbalance( $account );
+    function get_balance( $account, $minconf=1 ) {
+        return $this->client->getbalance( $account, $minconf );
     }
 
 
@@ -124,10 +133,18 @@ class Doge  {
      * @param float $amount amount of coins to send
      * @return string txid
      */
-    function send() {
+    function send( $account, $to_address, $amount ) {
         $txid = $this->client->sendfrom( $account, $to_address, $amount );  
         return $txid;
     }
 
+	/**
+	 * Validate a given Dogecoin Address
+	 * @param string $address to validate
+	 * @return array with the properties of the address
+	 */
+	function validate_address( $address ) {
+		return $this->client->validateaddress($address);
+	}
 }
 
