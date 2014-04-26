@@ -39,7 +39,7 @@ print( $address );
 print( "mkaz: " . $doge->get_balance( 'mkaz' ) );
 
 // send money externally (withdrawl?)
-$doge->send( 'mkaz', 'DNYJ2ANdx1GL4sbCyikaVgYrf2GfiCtf8N', 100 );
+$doge->send( 'mkaz', 'DQpwDDrW8gqJJWiW7TvXgNtbfD5Du94wy3', 100 );
 
 ```
 
@@ -48,6 +48,6 @@ $doge->send( 'mkaz', 'DNYJ2ANdx1GL4sbCyikaVgYrf2GfiCtf8N', 100 );
 
 Library created by Marcus Kazmierczak, http://mkaz.com/
 
-Donations accepted: DNYJ2ANdx1GL4sbCyikaVgYrf2GfiCtf8N
+Donations accepted: DQpwDDrW8gqJJWiW7TvXgNtbfD5Du94wy3
 
 
